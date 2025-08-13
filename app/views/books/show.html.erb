@@ -1,6 +1,8 @@
-<% @book.each do |book| %>
+<div>
+  <%= flash[:notice] %>
+</div>
 
-  <h4>Title:</h4>
+<h4>Title:</h4>
   <p><%= @book.title %></p>
 
   <h4>Body:</h4>
@@ -8,4 +10,3 @@
 
   <%= link_to "Edit", edit_book_path(@book.id) %>
   <%= link_to "Back", books_path(@book.id) %>
-<% end %>
