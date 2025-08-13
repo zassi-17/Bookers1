@@ -1,6 +1,7 @@
 <h1>Books</h1>
 
   <% @books.each do |book| %>
+
 <table>
   <tr>
   <th>Title</th>
@@ -12,12 +13,11 @@
   <td><span><%= book.body %></span></td>
   <td><%= link_to "Show", book_path(book.id) %></td>
   <td><%= link_to "Edit", edit_book_path(book.id) %></td>
-  <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+  <td><%= link_to "Destroy", book_path(book), method: :delete, data: { confirm: "Are you sure?" }%></td>
   </tr>
 </table>
 
- 
-  <% end %>
+<% end %>
 
 <h2>New book</h2>
 
@@ -31,13 +31,19 @@
 <% end %>
 
 <%= form_with model: Book.new do |f| %>
+  <div class="form-group"></div>
   <h4>Title</h4>
   <%= f.text_field :title %>
 
   <h4>Body</h4>
   <%= f.text_area :body %>
+  </div>
+
+  <div class="form-submit">
 
   <%= f.submit 'Create Book' %>
+
+  </div>
 <% end %>
 
 
